@@ -1,0 +1,15 @@
+.row {
+  padding-block: 10px;
+}
+img {
+  height: 20px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.icon {
+  margin-inline: 10px;
+}
+button {
+  margin-right: 10px;
+}

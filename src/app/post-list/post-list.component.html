@@ -1,0 +1,66 @@
+<div class="row flex justify-content-center">
+  <div class="flex-1">
+    <!-- <input type="checkbox" (change)="onChange($event.target.checked)" /> -->
+    <input
+      class="width-10"
+      type="checkbox"
+      (change)="onChecked()"
+      [checked]="isChecked"
+    />
+  </div>
+  <div class="flex-1 text-align-center">{{ post.name }}</div>
+  <div class="flex-1 text-align-center">{{ post.email }}</div>
+  <div class="flex-1 text-align-center">{{ post.role }}</div>
+  <div class="flex-1 text-align-center">
+    <span class="icon" (click)="openModal(post.id)">
+      <img src="../../assets/edit.svg" alt="Edit Icon" />
+    </span>
+    <span class="icon" (click)="deletePost(post.id)">
+      <img src="../../assets/trash.svg" alt="Trash Icon" />
+    </span>
+  </div>
+</div>
+<ng-container *ngIf="!hidden">
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-body">
+        <form [formGroup]="postForm">
+          <h4>Edit Post</h4>
+          <div>
+            <span>Enter name</span><br />
+            <input
+              type="text"
+              name="title"
+              placeholder="Enter name"
+              formControlName="name"
+              [(ngModel)]="post.name"
+            />
+          </div>
+          <div>
+            <span>Enter email</span><br />
+            <input
+              type="text"
+              name="title"
+              placeholder="Enter email"
+              formControlName="email"
+              [(ngModel)]="post.email"
+            />
+          </div>
+          <div>
+            <span>Enter role</span><br />
+            <input
+              type="text"
+              name="title"
+              placeholder="Enter role"
+              formControlName="role"
+              [(ngModel)]="post.role"
+            />
+          </div>
+          <button (click)="closeModal()">Cancel</button>
+          <button (click)="editPost()">submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</ng-container>

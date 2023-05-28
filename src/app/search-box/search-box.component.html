@@ -1,0 +1,9 @@
+<form [formGroup]="searchForm" class="flex">
+  <input
+    class="flex-1"
+    type="text"
+    placeholder="Search by name,email or role"
+    (keyup)="search()"
+    formControlName="search"
+  />
+</form>

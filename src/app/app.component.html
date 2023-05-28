@@ -1,0 +1,38 @@
+<main class="width-80 margin-auto">
+  <search-box></search-box>
+  <div class="header flex">
+    <div class="flex-1 width-10">
+      <button class="select-all" (click)="onMultipleChecked()">
+        Select All
+      </button>
+    </div>
+    <div class="flex-1 text-align-center align-self-center">Name</div>
+    <div class="flex-1 text-align-center align-self-center">Email</div>
+    <div class="flex-1 text-align-center align-self-center">Role</div>
+    <div class="flex-1 text-align-center align-self-center">Actions</div>
+  </div>
+  <ng-container *ngIf="posts$">
+    <ng-container
+      *ngFor="
+        let posts of posts$
+          | searchFilter : name
+          | paginate : { itemsPerPage: 10, currentPage: p }
+      "
+    >
+      <post-list [post]="posts"></post-list>
+    </ng-container>
+    <div class="my-pagination container">
+      <div class="delete">
+        <button class="text-align-left" (click)="deletePosts()">delete</button>
+      </div>
+      <div>
+        <pagination-controls
+          class=""
+          (pageChange)="p = $event"
+          nextLabel=""
+          previousLabel=""
+        ></pagination-controls>
+      </div>
+    </div>
+  </ng-container>
+</main>

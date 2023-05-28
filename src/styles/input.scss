@@ -1,0 +1,10 @@
+input {
+  font-size: 16px;
+  padding: 10px;
+  box-shadow: var(--box-shadow);
+  margin-block: 10px;
+  width: 90%;
+}
+input[type="checkbox"] {
+  box-shadow: none;
+}
