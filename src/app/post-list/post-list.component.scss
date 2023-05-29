@@ -1,6 +1,9 @@
 .row {
   padding-block: 10px;
 }
+.rowSelected {
+  background-color: gainsboro;
+}
 img {
   height: 20px;
   &:hover {

@@ -1,4 +1,7 @@
-<div class="row flex justify-content-center">
+<div
+  class="row flex justify-content-center"
+  [ngClass]="isChecked ? 'rowSelected' : ''"
+>
   <div class="flex-1">
     <!-- <input type="checkbox" (change)="onChange($event.target.checked)" /> -->
     <input

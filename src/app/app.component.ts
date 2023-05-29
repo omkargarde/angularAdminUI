@@ -86,12 +86,9 @@ export class AppComponent {
   }
   onMultipleChecked() {
     const page = this.p - 1;
-
     for (let i = 0; i < 10; i++) {
       const index = page * 10 + i;
       this.postService.onChecked(this.posts$[index].id);
     }
-    this.isChecked = false;
-    this.cdr.detectChanges();
   }
 }
